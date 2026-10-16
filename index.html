@@ -78,12 +78,16 @@ body::before{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .earth-open .earth-stage,.earth-open .earth-trigger{width:min(440px,calc(100vw - 32px),calc(100dvh - 80px));height:min(440px,calc(100vw - 32px),calc(100dvh - 80px))}
 .earth-open .earth-stage{z-index:50;opacity:1}
 .earth-open .earth-trigger{z-index:51}
+/* Keep the original circle in the hit area as the larger globe grows left/down. */
+.earth-open .earth-trigger::before{content:'';position:absolute;top:0;right:0;width:220px;height:220px;border-radius:50%;pointer-events:auto}
 .earth-open .earth-hint{color:#bcd6ec;background:#070d14cc;border-radius:12px;padding:4px 8px;bottom:-17px}
 .earth-credit{margin-top:14px;font-size:10px;color:#8fabc3;line-height:1.8}.earth-credit a{color:#92c6ea}
 @media(min-width:1780px){.atlas-hero{padding-right:210px}}
+@media(max-width:1180px){.earth-open .earth-trigger::before{width:180px;height:180px}}
 @media(max-width:1180px){.atlas-hero{padding-right:190px;min-height:195px}.earth-stage,.earth-trigger{width:180px;height:180px;right:24px}.atlas-hero h1{font-size:28px}}
 @media(max-width:760px){.atlas-hero{min-height:180px;padding-right:112px}.atlas-hero h1{font-size:23px;line-height:1.5}.atlas-hero .topline{display:block}.atlas-hero .version{display:block;font-size:9px;margin-top:5px}.atlas-hero .intro{font-size:11px}.earth-stage,.earth-trigger{position:absolute;top:160px;right:12px;width:110px;height:110px}.earth-open .earth-stage,.earth-open .earth-trigger{position:fixed;top:130px;right:16px}.earth-hint{font-size:8px;white-space:normal;bottom:-24px;line-height:1.4}.earth-open .earth-hint{font-size:10px;bottom:-25px}.stats{padding:13px 14px}.pagehead h2{font-size:21px}}
 @media(prefers-reduced-motion:reduce){.earth-stage,.earth-trigger{transition:none!important}}
+@media(max-width:760px){.earth-open .earth-trigger::before{width:110px;height:110px}}
 @media print{.earth-stage,.earth-trigger,.earth-credit{display:none!important}body{background:white}.main>header h1,.main>header .intro,.pagehead h2,.group-head,.footer{color:#172b3d}.atlas-hero{min-height:0;padding-right:0}.card,.event,.document,.result,.reviewcard,.curve-card,.chrono-panel,.notice,.formula,.reader-page,.reader-outline{background:white!important}}
 
 .pagehead .caption{color:#a4b6c9}.chrono-key .magnet-hint{color:#87bed4}.pagehead button.active{color:white}
